@@ -1,0 +1,6 @@
+pandas
+openpyxl
+slack-sdk
+boto3
+requests
+numpy

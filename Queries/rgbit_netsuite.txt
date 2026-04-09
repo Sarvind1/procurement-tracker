@@ -1,0 +1,18 @@
+SELECT
+	distinct
+        otif_id,
+        currency,
+        subsidiary_no_hierarchy as "subsidiary",
+        prd_status as "prd status",
+        deliver_to_location as "deliver to location",
+        scm_link_to_po
+    FROM
+    (
+        SELECT
+            distinct
+            document_number||item||line_id as otif_id,
+            currency, subsidiary_no_hierarchy, prd_status, scm_link_to_po, deliver_to_location
+        FROM
+            razor_db.public.rgbit_netsuite_purchase_orders_lineitems_withkey
+	WHERE TO_TIMESTAMP(date_created, 'DD.MM.YYYY HH24:MI')::date BETWEEN DATE '2025-08-01' AND CURRENT_DATE
+    ) a

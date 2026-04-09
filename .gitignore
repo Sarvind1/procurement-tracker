@@ -1,0 +1,62 @@
+# Virtual environment
+.venv/
+venv/
+env/
+*.egg-info/
+dist/
+build/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+.env
+.env.*
+*.env
+
+# Data files (large CSVs, Excel exports, JSON results)
+*.csv
+*.xlsx
+*.xls
+*.json
+Pull/
+Export/
+
+# Specific data files
+otif_data_sql.csv
+otif_data_excel.csv
+xyz.csv
+update_comparison.xlsx
+batch_permissions_results.json
+vendor_email_map.xlsx
+already_sent.csv
+
+# Secrets/credentials
+credentials/
+*.key
+*.pem
+AWS_*
+aws_*
+
+# Logs and temp
+*.log
+temp/
+tmp/
+*.tmp
+
+# IDE workspace
+.vscode/settings.json
+.idea/workspace.xml

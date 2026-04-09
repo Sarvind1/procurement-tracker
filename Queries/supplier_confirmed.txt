@@ -1,0 +1,30 @@
+SELECT 
+    DISTINCT
+        po_number || razin || line_id::text AS po_razin_id,
+        supplier_confirmation_date
+    FROM (
+        SELECT 
+            DoDData.*,
+            POData.quantity,
+            POData."quantity_fulfilled/received"
+        FROM razor_db.procurement.otif_tracker AS DoDData
+        LEFT JOIN (
+            SELECT 
+                document_number,
+                line_id,
+                item,
+                quantity,
+                "quantity_fulfilled/received",
+                DENSE_RANK() OVER (
+                    PARTITION BY document_number || line_id::text
+                    ORDER BY snapshot_datetime DESC
+                ) AS PORank
+            FROM razor_db.netsuite.otif_purchase_order_line_items_with_key
+        ) AS POData
+        ON DoDData.po_number = POData.document_number
+        AND DoDData.line_id = POData.line_id
+        WHERE PORank = 1
+    ) AS FinalData
+    WHERE final_status NOT IN ('Closed','Legacy Closed','Fully Billed')
+    AND (quantity - "quantity_fulfilled/received") > 0
+    AND (scm_po_scm_memo IS NULL OR scm_po_scm_memo != 'import_ic_flow');

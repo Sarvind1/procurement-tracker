@@ -1,0 +1,4 @@
+SELECT
+distinct batch_id, batch_spd as spd
+from razor_db.procurement.otif_tracker
+where batch_spd is not null

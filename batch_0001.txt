@@ -1,0 +1,16 @@
+--batch_0001
+Content-Type: multipart/mixed; boundary=changeset_0001
+
+--changeset_0001
+Content-Type: application/http
+Content-Transfer-Encoding: binary
+
+PATCH https://razrgroup-my.sharepoint.com/personal/communication_razor-group_com/_api/web/lists/GetByTitle('Quality Inspection')/items(8837) HTTP/1.1
+Content-Type: application/json;odata=nometadata
+Accept: application/json;odata=nometadata
+IF-MATCH: *
+
+{"Title": "PO378536EVER-0000874", "automatedsent_x003f_": "Yes", "batchid": "BATCH0012585", "documentnumber0": "PO378536", "razin": "EVER-000087", "LineId": "4", "brand": "Everything You Need", "compliancestatus": "Approved", "vendorid": "73651", "vendorname": "SHINY TIME INC LIMITED", "vendoremail": "goodshiny@vip.163.com", "smemail": "lemon.shen@razor-group.com", "Batch_PO_Razin": "BATCH0012585EVER-000087", "currentstatus": "19. Supplier Pickup Date Pending", "substatus": "19b. SPD Missing", "daysbucket": "On-Track", "finalteam": "China Procurement", "finalpoc": "Lemon Shen", "cm": "Amy Chen", "sm": "Lemon Shen"}
+
+--changeset_0001--
+--batch_0001--

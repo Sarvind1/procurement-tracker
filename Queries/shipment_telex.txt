@@ -1,0 +1,108 @@
+select
+      A.shipment_number as inb#,
+      A.container_number_container_type as "container number",
+      B.telex_release_date_supplier as "telex release date (supplier)",
+      B.telex_release_date_ffwp as "telex release date (ffwp)",
+      B.actual_arrival_date as "actual arrival date",
+      B.actual_cargo_pick_up_date as "actual cargo pickup date",
+      B.actual_shipping_date as "actual shipping date",
+      B.actual_cargo_pick_up_date as "actual pickup date",
+      B.gate_in as "gate in",
+      B.expected_shipping_date as "expected shipping date",
+      B.expected_arrival_date as "expected arrival date",
+      B.actual_delivery_date as "actual delivery date", 
+      B.cargo_ready_date as "cargo ready date",
+      B.inb_receiving_date as "inb receiving date",
+      A.shipment_method as "shipment method",
+      A.port_of_departure_pod as "port of departure pod",
+      A.port_of_arrival_poa as "port of arrival poa",
+      A.ff_remarks as "ff remarks",
+      A.expected_delivery_date as "expected delivery date",
+      A.customs_clearance_date as "customs clearance date",
+      A.freight_forwarder as ffw
+    from razor_db.netsuite.inbound_shipments_header A
+    left join
+    (
+      SELECT
+      shipment_number,
+      MAX(batch_telex_date) AS telex_release_date_supplier,
+      MAX(telex_release_date) AS telex_release_date_ffwp,
+      MAX(actual_arrival_date) AS actual_arrival_date,
+      MAX(actual_cargo_pick_up_date) AS actual_cargo_pick_up_date,
+      MAX(actual_shipping_date) AS actual_shipping_date,
+      MAX(gate_in) as gate_in,
+      MAX(expected_shipping_date) as expected_shipping_date,
+      MAX(expected_arrival_date) as expected_arrival_date,
+      MAX(actual_delivery_date) as actual_delivery_date,
+      MAX(cargo_ready_date) as cargo_ready_date,
+      MAX(inb_receiving_date) as inb_receiving_date,
+      MAX(expected_delivery_date) as expected_delivery_date,
+      MAX(customs_clearance_date) as customs_clearance_date
+      FROM
+      (
+        SELECT
+        shp_head.shipment_number,
+        -- TO_DATE(shp_head.telex_release_date, 'yyyy-mm-dd') AS telex_release_date,
+        TO_DATE(shp_head.telex_release_date, 'dd.mm.yyyy') AS telex_release_date,
+        TO_DATE(shp_head.actual_arrival_date, 'yyyy-mm-dd') AS actual_arrival_date,
+        TO_DATE(shp_head.actual_cargo_pick_up_date, 'yyyy-mm-dd') AS actual_cargo_pick_up_date,
+        TO_DATE(shp_head.actual_shipping_date, 'yyyy-mm-dd') AS actual_shipping_date,
+        TO_DATE(shp_head.gate_in, 'yyyy-mm-dd') AS gate_in,
+        TO_DATE(shp_head.expected_shipping_date, 'yyyy-mm-dd') AS expected_shipping_date,
+        TO_DATE(shp_head.actual_delivery_date, 'yyyy-mm-dd') AS actual_delivery_date,
+        TO_DATE(shp_head.expected_arrival_date, 'yyyy-mm-dd') AS expected_arrival_date,
+        TO_DATE(batch_telex.batch_telex_date, 'yyyy-mm-dd') AS batch_telex_date,
+        TO_DATE(shp_head.cargo_ready_date, 'yyyy-mm-dd') AS cargo_ready_date,
+        TO_DATE(shp_head.inb_receiving_date, 'yyyy-mm-dd') as inb_receiving_date,
+        TO_DATE(shp_head.expected_delivery_date, 'yyyy-mm-dd') as expected_delivery_date,
+        TO_DATE(shp_head.customs_clearance_date, 'dd.mm.yyyy') AS customs_clearance_date
+        FROM razor_db.netsuite.inbound_shipments_header shp_head
+        INNER JOIN
+        (
+          SELECT
+          shipment_number AS ship_num,
+          po_line_unique_key
+          FROM razor_db.netsuite.inbound_shipment_lines
+        ) shp_line
+        ON shp_head.shipment_number = shp_line.ship_num
+        LEFT JOIN
+        (
+          SELECT
+          DISTINCT
+          A.po_line_unique_key,
+          B.batch_id
+          FROM razor_db.netsuite.inbound_shipment_lines A
+          left join razor_db.netsuite.batch_lines B
+          on A.po_line_unique_key=B.po_line_key
+        ) PO_LINE
+        ON shp_line.po_line_unique_key = PO_LINE.po_line_unique_key
+        LEFT JOIN
+        (
+          SELECT
+          po_line_unique_key,
+          LISTAGG(document_number, ', ') AS document_number
+          FROM razor_db.public.rgbit_po_invoice_mapping
+          GROUP BY po_line_unique_key
+        ) invoice_tbl
+        ON PO_LINE.po_line_unique_key = invoice_tbl.po_line_unique_key
+        LEFT JOIN
+        (
+          SELECT
+          batch_ID,
+          MAX(telex_release_date) AS batch_telex_date
+          FROM
+          (
+            SELECT *,
+            SPLIT_PART(vendor_id_po_number, '#', 2) AS PO_Number,
+            SPLIT_PART(shipment_batch_id_pl_id, '#', 1) AS Batch_ID,
+            TO_DATE(created_date, 'yyyy.mm.dd') AS telex_release_date
+            FROM razor_db.vendor_portal.invoicing_packinglist_uploads_ddb_logs
+            WHERE telex_Status = 'uploaded'
+          )
+          GROUP BY batch_ID
+        ) batch_telex
+        ON PO_LINE.batch_id = batch_telex.batch_id
+      ) final
+      GROUP BY shipment_number
+    ) B
+    on A.shipment_number=B.shipment_number
