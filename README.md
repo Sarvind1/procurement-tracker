@@ -1,72 +1,74 @@
-# Procurement QI & OTIF Pipeline
+# OTIF Tracker
 
-A Python data pipeline for managing Quality Inspection (QI) and On-Time-In-Full (OTIF) metrics in procurement workflows. Fetches data from SharePoint and Redshift, processes and normalizes it according to business rules, and syncs updates back to SharePoint with proper permission management.
+A Python-based supply chain data pipeline for tracking On-Time In-Full (OTIF) metrics, managing quality inspections, and synchronizing data between SharePoint, Redshift, and Excel systems. This tool extracts procurement data, processes KPIs, manages compliance workflows, and automates quality inspection email scheduling with Slack notifications.
 
-## Key Features
+## Features
 
-- **Multi-source Data Integration**: Pulls QI data from SharePoint lists and OTIF metrics from Redshift
-- **Data Processing & Transformation**: Normalizes values, handles data type conversions, and applies business logic rules
-- **SharePoint Sync**: Batch creates/updates list items with automatic system column filtering and permission management
-- **Email Scheduling**: Schedules QI emails based on Planned Receipt Date (PRD) and compliance tracking
-- **Slack Notifications**: Sends real-time pipeline execution status updates
-- **Excel & CSV Export**: Generates booking reports and data exports for analysis
+- **Data Integration**: Pulls quality inspection and shipment data from SharePoint lists and Redshift data warehouse
+- **OTIF Analysis**: Processes and tracks On-Time In-Full metrics across the supply chain
+- **Batch Export**: Exports data to SharePoint in batches with granular permission management
+- **Compliance Automation**: Schedules and tracks quality inspection emails based on PRD (Planned Receipt Date) windows
+- **Multi-format Support**: Works with CSV, Excel, and JSON data formats
+- **Slack Notifications**: Sends pipeline status updates to Slack channels
+- **Data Validation**: Normalizes and validates data types across multiple sources
 
 ## Tech Stack
 
-- **Python 3** with pandas and NumPy for data manipulation
-- **Redshift** for OTIF data warehouse queries
-- **SharePoint** (via REST API) for list management and permissions
-- **Slack SDK** for notifications
-- **openpyxl** for Excel operations
+- **Language**: Python 3
+- **Data Processing**: pandas, numpy
+- **Data Warehouse**: Amazon Redshift
+- **APIs**: SharePoint REST API, Slack SDK
+- **Excel**: openpyxl
+- **HTTP**: requests
 
 ## Setup
 
-1. **Clone the repository**
+1. **Clone and create virtual environment**:
    ```bash
    git clone <repo-url>
-   cd <repo-name>
-   ```
-
-2. **Create and activate virtual environment**
-   ```bash
+   cd otif-tracker
    python3 -m venv .venv
    source .venv/bin/activate  # On Windows: .venv\Scripts\activate
    ```
 
-3. **Install dependencies**
+2. **Install dependencies**:
    ```bash
    pip install -r requirements.txt
    ```
 
-4. **Configure paths and credentials**
-   - Update SharePoint and OneDrive paths in scripts (currently hardcoded in main.py)
-   - Set Slack webhook URL for notifications
-   - Configure Redshift connection credentials
+3. **Configure paths and credentials**:
+   - Set `universal_path` in `main.py` to your OneDrive/SharePoint Procurement Trackers location
+   - Configure environment variables for:
+     - Redshift connection details
+     - SharePoint authentication
+     - Slack webhook/token
+
+4. **Prepare SQL queries**:
+   - Place Redshift queries in the `Queries/` directory as `.txt` files
+   - Example: `Queries/otif_dash.txt`
+
+5. **Set up mappings**:
+   - Create vendor email mappings in `Mappings/vendor_email_map.xlsx`
 
 ## Usage
 
-Run the main orchestration script:
-
+Run the main pipeline:
 ```bash
 python main.py
 ```
 
 This will:
-1. Fetch QI data from SharePoint
+1. Fetch the Quality Inspection list from SharePoint
 2. Query OTIF metrics from Redshift
-3. Process and manipulate both datasets
-4. Update QI bookings in Excel
-5. Push processed data back to SharePoint with permissions
-6. Send a Slack confirmation message
+3. Process and manipulate the data
+4. Update quality inspection bookings in Excel
+5. Sync changes back to SharePoint with proper permissions
+6. Schedule compliance emails based on PRD dates
+7. Send Slack notification on completion
 
-## Project Structure
+### Individual Modules
 
-- `main.py` - Main orchestration script
-- `manipulate.py` - QI data processing and email scheduling logic
-- `manipulate_otif.py` - OTIF data filtering and tracking
-- `process_list.py` - DataFrame processing, column mapping, and comparison
-- `batch_with_permissions.py` - SharePoint batch operations with permission handling
-- `qi_bookings.py` - QI booking Excel operations
-- `Queries/` - SQL queries for Redshift extraction
-- `Mappings/` - Vendor email mapping and configuration files
-- `Export/` & `Pull/` - Data output directories
+- **`batch_with_permissions.py`**: Export data to SharePoint in batches with permission control
+- **`qi_bookings.py`**: Process and update quality inspection bookings
+- **`manipulate_otif.py`**: Filter and track OTIF-relevant shipments
+- **`process_list.py`**: Normalize and validate data across sources
