@@ -1,0 +1,132 @@
+{
+  "Title": {
+    "target_col": "po_razin_id",
+    "update_check": "no",
+    "dropdown": "no"
+  },
+  "QIResult": {
+    "target_col": "quality control status",
+    "update_check": "yes",
+    "dropdown": "yes"
+  },
+  "QIDate": {
+    "target_col": "quality control date",
+    "update_check": "yes",
+    "dropdown": "no"
+  },
+  "prd": {
+    "target_col": "prd",
+    "update_check": "yes",
+    "dropdown": "no"
+  },
+  "batchid": {
+    "target_col": "batch_id",
+    "update_check": "yes",
+    "dropdown": "no"
+  },
+  "razin": {
+    "target_col": "item",
+    "update_check": "yes",
+    "dropdown": "no"
+  },
+  "LineId": {
+    "target_col": "line_id",
+    "update_check": "yes",
+    "dropdown": "no"
+  },
+  "brand": {
+    "target_col": "brand",
+    "update_check": "yes",
+    "dropdown": "no"
+  },
+  "compliancestatus": {
+    "target_col": "compliance status",
+    "update_check": "yes",
+    "dropdown": "no"
+  },
+  "vendorid": {
+    "target_col": "vendor id",
+    "update_check": "yes",
+    "dropdown": "no"
+  },
+  "vendorname": {
+    "target_col": "vendor name",
+    "update_check": "yes",
+    "dropdown": "no"
+  },
+  "currentstatus": {
+    "target_col": "current status",
+    "update_check": "yes",
+    "dropdown": "no"
+  },
+  "substatus": {
+    "target_col": "sub status",
+    "update_check": "yes",
+    "dropdown": "no"
+  },
+  "daysbucket": {
+    "target_col": "days bucket",
+    "update_check": "yes",
+    "dropdown": "no"
+  },
+  "finalteam": {
+    "target_col": "final team",
+    "update_check": "yes",
+    "dropdown": "no"
+  },
+  "finalpoc": {
+    "target_col": "final poc",
+    "update_check": "yes",
+    "dropdown": "no"
+  },
+  "cm": {
+    "target_col": "cm",
+    "update_check": "yes",
+    "dropdown": "no"
+  },
+  "sm": {
+    "target_col": "sm",
+    "update_check": "yes",
+    "dropdown": "no"
+  },
+  "name": {
+    "target_col": "name",
+    "update_check": "yes",
+    "dropdown": "no"
+  },
+  "documentnumber0": {
+    "target_col": "document number",
+    "update_check": "yes",
+    "dropdown": "no"
+  },
+  "item": {
+    "target_col": "item",
+    "update_check": "yes",
+    "dropdown": "no"
+  },
+  "Subset": {
+    "target_col": "subset",
+    "update_check": "yes",
+    "dropdown": "no"
+  },
+  "automatedsent_x003f_": {
+    "target_col": "sent already?",
+    "update_check": "yes",
+    "dropdown": "no"
+  },
+  "emailscheduledfor": {
+    "target_col": "email scheduled for",
+    "update_check": "yes",
+    "dropdown": "no"
+  },
+  "vendoremail": {
+    "target_col": "vendor email",
+    "update_check": "yes",
+    "dropdown": "no"
+  },
+  "smemail": {
+    "target_col": "sm email",
+    "update_check": "yes",
+    "dropdown": "no"
+  }
+}

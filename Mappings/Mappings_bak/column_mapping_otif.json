@@ -1,0 +1,404 @@
+{
+  "Title": {
+    "target_col": "otif_id",
+    "update_check": "no",
+    "dropdown": "no"
+  },
+  "field_63": {
+    "target_col": "sm",
+    "update_check": "yes",
+    "dropdown": "no"
+  },
+  "field_3": {
+    "target_col": "current status",
+    "update_check": "yes",
+    "dropdown": "no"
+  },
+  "field_4": {
+    "target_col": "sub status",
+    "update_check": "yes",
+    "dropdown": "no"
+  },
+  "field_5": {
+    "target_col": "days bucket",
+    "update_check": "yes",
+    "dropdown": "no"
+  },
+  "field_6": {
+    "target_col": "final team",
+    "update_check": "yes",
+    "dropdown": "no"
+  },
+  "field_7": {
+    "target_col": "final poc",
+    "update_check": "yes",
+    "dropdown": "no"
+  },
+  "field_9": {
+    "target_col": "document number",
+    "update_check": "yes",
+    "dropdown": "no"
+  },
+  "field_10": {
+    "target_col": "item",
+    "update_check": "yes",
+    "dropdown": "no"
+  },
+  "field_11": {
+    "target_col": "line id",
+    "update_check": "yes",
+    "dropdown": "no"
+  },
+  "field_12": {
+    "target_col": "asin",
+    "update_check": "yes",
+    "dropdown": "no"
+  },
+  "field_13": {
+    "target_col": "market place",
+    "update_check": "yes",
+    "dropdown": "no"
+  },
+  "field_14": {
+    "target_col": "associated brands",
+    "update_check": "yes",
+    "dropdown": "no"
+  },
+  "field_15": {
+    "target_col": "incoterm",
+    "update_check": "yes",
+    "dropdown": "no"
+  },
+  "field_16": {
+    "target_col": "name",
+    "update_check": "yes",
+    "dropdown": "no"
+  },
+  "field_17": {
+    "target_col": "supplier payment terms",
+    "update_check": "yes",
+    "dropdown": "no"
+  },
+  "field_21": {
+    "target_col": "prd",
+    "update_check": "yes",
+    "dropdown": "no"
+  },
+  "field_24": {
+    "target_col": "quantity",
+    "update_check": "yes",
+    "dropdown": "no"
+  },
+  "field_25": {
+    "target_col": "quantity fulfilled/received",
+    "update_check": "yes",
+    "dropdown": "no"
+  },
+  "field_26": {
+    "target_col": "quantity on shipments",
+    "update_check": "yes",
+    "dropdown": "no"
+  },
+  "field_29": {
+    "target_col": "production status",
+    "update_check": "yes",
+    "dropdown": "no"
+  },
+  "field_30": {
+    "target_col": "batch_id",
+    "update_check": "yes",
+    "dropdown": "no"
+  },
+  "field_34": {
+    "target_col": "invoice status",
+    "update_check": "yes",
+    "dropdown": "no"
+  },
+  "field_35": {
+    "target_col": "per unit amount",
+    "update_check": "yes",
+    "dropdown": "no",
+    "format_type": "float"
+  },
+  "field_36": {
+    "target_col": "pending units",
+    "update_check": "yes",
+    "dropdown": "no"
+  },
+  "field_37": {
+    "target_col": "pending value",
+    "update_check": "yes",
+    "dropdown": "no",
+    "format_type": "float"
+  },
+  "field_59": {
+    "target_col": "compliance status",
+    "update_check": "yes",
+    "dropdown": "no"
+  },
+  "field_61": {
+    "target_col": "quality control status",
+    "update_check": "yes",
+    "dropdown": "no"
+  },
+  "field_8": {
+    "target_col": "date created",
+    "update_check": "yes",
+    "dropdown": "no"
+  },
+  "field_18": {
+    "target_col": "supplier confirmation status",
+    "update_check": "yes",
+    "dropdown": "no"
+  },
+  "field_19": {
+    "target_col": "memo (main)",
+    "update_check": "yes",
+    "dropdown": "no"
+  },
+  "field_20": {
+    "target_col": "first prd",
+    "update_check": "yes",
+    "dropdown": "no"
+  },
+  "field_22": {
+    "target_col": "planned prd",
+    "update_check": "yes",
+    "dropdown": "no"
+  },
+  "field_23": {
+    "target_col": "confirmed crd",
+    "update_check": "yes",
+    "dropdown": "no"
+  },
+  "field_27": {
+    "target_col": "hs | sign-off shipment booking im line",
+    "update_check": "yes",
+    "dropdown": "no"
+  },
+  "field_28": {
+    "target_col": "hs | sign-off shipment booking sm line",
+    "update_check": "yes",
+    "dropdown": "no"
+  },
+  "field_31": {
+    "target_col": "wh type",
+    "update_check": "yes",
+    "dropdown": "no"
+  },
+  "field_32": {
+    "target_col": "prd reconfirmed",
+    "update_check": "yes",
+    "dropdown": "no"
+  },
+  "field_33": {
+    "target_col": "invoice number",
+    "update_check": "yes",
+    "dropdown": "no"
+  },
+  "field_38": {
+    "target_col": "line payment type",
+    "update_check": "yes",
+    "dropdown": "no"
+  },
+  "field_39": {
+    "target_col": "batch payment type",
+    "update_check": "yes",
+    "dropdown": "no"
+  },
+  "field_40": {
+    "target_col": "inb payment type",
+    "update_check": "yes",
+    "dropdown": "no"
+  },
+  "field_41": {
+    "target_col": "line invoice submission status",
+    "update_check": "yes",
+    "dropdown": "no"
+  },
+  "field_42": {
+    "target_col": "batch invoice submission status",
+    "update_check": "yes",
+    "dropdown": "no"
+  },
+  "field_43": {
+    "target_col": "inb invoice submission status",
+    "update_check": "yes",
+    "dropdown": "no"
+  },
+  "field_44": {
+    "target_col": "line payment status",
+    "update_check": "yes",
+    "dropdown": "no"
+  },
+  "field_45": {
+    "target_col": "batch payment status",
+    "update_check": "yes",
+    "dropdown": "no"
+  },
+  "field_46": {
+    "target_col": "inb payment status",
+    "update_check": "yes",
+    "dropdown": "no"
+  },
+  "field_47": {
+    "target_col": "batch qc pending",
+    "update_check": "yes",
+    "dropdown": "no"
+  },
+  "field_48": {
+    "target_col": "vp booking status",
+    "update_check": "yes",
+    "dropdown": "no"
+  },
+  "field_49": {
+    "target_col": "fob date",
+    "update_check": "yes",
+    "dropdown": "no"
+  },
+  "field_51": {
+    "target_col": "batch pickup status",
+    "update_check": "yes",
+    "dropdown": "no"
+  },
+  "field_52": {
+    "target_col": "shipping status",
+    "update_check": "yes",
+    "dropdown": "no"
+  },
+  "field_53": {
+    "target_col": "inb#",
+    "update_check": "yes",
+    "dropdown": "no"
+  },
+  "field_54": {
+    "target_col": "shipment_status",
+    "update_check": "yes",
+    "dropdown": "no"
+  },
+  "field_56": {
+    "target_col": "supplier telex status",
+    "update_check": "yes",
+    "dropdown": "no"
+  },
+  "field_57": {
+    "target_col": "sm telex status",
+    "update_check": "yes",
+    "dropdown": "no"
+  },
+  "field_58": {
+    "target_col": "ffw telex status",
+    "update_check": "yes",
+    "dropdown": "no"
+  },
+  "field_62": {
+    "target_col": "cm",
+    "update_check": "yes",
+    "dropdown": "no"
+  },
+  "field_64": {
+    "target_col": "team",
+    "update_check": "yes",
+    "dropdown": "no"
+  },
+  "field_65": {
+    "target_col": "l2 final status",
+    "update_check": "yes",
+    "dropdown": "no"
+  },
+  "internalid": {
+    "target_col": "internal id",
+    "update_check": "yes",
+    "dropdown": "no"
+  },
+  "po_razin_id": {
+    "target_col": "po_razin_id",
+    "update_check": "no",
+    "dropdown": "no"
+  },
+  "po_razin_vendor": {
+    "target_col": "po_razin_vendor",
+    "update_check": "yes",
+    "dropdown": "no"
+  },
+  "field_60": {
+    "target_col": "quality control date",
+    "update_check": "yes",
+    "dropdown": "no"
+  },
+  "field_50": {
+    "target_col": "fob date",
+    "update_check": "yes",
+    "dropdown": "no"
+  },
+  "field_55": {
+    "target_col": "fob status",
+    "update_check": "yes",
+    "dropdown": "no"
+  },
+  "field_66": {
+    "target_col": "deliver to location",
+    "update_check": "yes",
+    "dropdown": "no"
+  },
+  "containernumber": {
+    "target_col": "container number",
+    "update_check": "yes",
+    "dropdown": "no"
+  },
+  "actualarrivaldate": {
+    "target_col": "actual arrival date",
+    "update_check": "yes",
+    "dropdown": "no"
+  },
+  "actualshippingdate": {
+    "target_col": "actual shipping date",
+    "update_check": "yes",
+    "dropdown": "no"
+  },
+  "gatein": {
+    "target_col": "gate in",
+    "update_check": "yes",
+    "dropdown": "no"
+  },
+  "expectedshippingdate": {
+    "target_col": "expected shipping date",
+    "update_check": "yes",
+    "dropdown": "no"
+  },
+  "actualdeliverydate": {
+    "target_col": "actual delivery date",
+    "update_check": "yes",
+    "dropdown": "no"
+  },
+  "spd": {
+    "target_col": "spd",
+    "update_check": "yes",
+    "dropdown": "no"
+  },
+  "freightpartner": {
+    "target_col": "ffw",
+    "update_check": "yes",
+    "dropdown": "no"
+  },
+  "telexreleasedate_x0028_supplier_": {
+    "target_col": "telex release date (supplier)",
+    "update_check": "yes",
+    "dropdown": "no"
+  },
+  "telexreleasedate_x0028_ffwp_x002": {
+    "target_col": "telex release date (ffwp)",
+    "update_check": "yes",
+    "dropdown": "no"
+  },
+  "expectedarrivaldate": {
+    "target_col": "expected arrival date",
+    "update_check": "yes",
+    "dropdown": "no"
+  },
+  "expecteddeliverydate": {
+    "target_col": "expected delivery date",
+    "update_check": "yes",
+    "dropdown": "no"
+  }
+}
