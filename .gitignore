@@ -53,3 +53,17 @@ aws_*
 temp/
 tmp/
 *.tmp
+
+# pip
+requirements.txt.lock
+pip-log.txt
+pip-delete-this-directory.txt
+
+# macOS
+.AppleDouble
+.LSOverride
+*.swp
+
+# Windows
+Thumbs.db
+desktop.ini
