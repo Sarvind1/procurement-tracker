@@ -23,40 +23,40 @@ __pycache__/
 # OS
 .DS_Store
 Thumbs.db
+
+# Environment variables
 .env
 .env.*
 *.env
 
-# Data files (large CSVs, Excel exports, JSON results)
+# Data files - large CSVs, Excel exports, JSON results
 *.csv
 *.xlsx
 *.xls
 *.json
-Pull/
-Export/
 
-# Specific data files
+# Data directories
+Export/
+Pull/
+Compliance/QI\ Email\ Scheduler/already_sent.csv
+
+# Specific large data files (if tracking is needed)
+batch_permissions_results.json
 otif_data_sql.csv
 otif_data_excel.csv
 xyz.csv
 update_comparison.xlsx
-batch_permissions_results.json
 vendor_email_map.xlsx
-already_sent.csv
 
-# Secrets/credentials
+# Credentials and secrets
 credentials/
 *.key
 *.pem
 AWS_*
 aws_*
 
-# Logs and temp
+# Logs and temp files
 *.log
 temp/
 tmp/
 *.tmp
-
-# IDE workspace
-.vscode/settings.json
-.idea/workspace.xml
