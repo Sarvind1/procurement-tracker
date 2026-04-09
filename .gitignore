@@ -34,6 +34,7 @@ Thumbs.db
 *.xlsx
 *.xls
 *.json
+!Mappings/*.json
 
 # Data directories
 Export/
